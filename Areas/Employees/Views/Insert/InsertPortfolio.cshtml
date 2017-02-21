@@ -1,0 +1,109 @@
+﻿@model Data.Portfolio
+
+@{
+    ViewBag.Title = "InsertPortfolio";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+
+<h2>Insert Portfolio</h2>
+
+@using (Html.BeginForm("InsertPortfolio", "Insert", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="Form">
+        <div class="row">
+            <span>Title :</span>
+            @Html.TextBoxFor(Model => Model.Title, new { placeholder = "Title" })
+        </div>
+
+        <div class="row">
+            <span>Service :</span>
+            @*<select name="listbox" id="listbox">
+                @foreach (var item in Model.lstServices)
+                {
+
+                    <option value="@item.ServiceId">
+                        @item.ServiceName
+                    </option>
+                }
+            </select>*@
+
+            @Html.DropDownList("ServiceId", (IEnumerable<SelectListItem>)ViewData["ServiceLst"],new { id = "ServiceId" })
+
+            @*@Html.DropDownListFor(Model => Model.ServiceId, new SelectList(
+                new List<Object>{Model=> Model.lstServices, "ServiceId", "ServiceName"}, "value", "text", 2))*@
+
+            @*@Html.DropDownListFor(Model => Model.ServiceId, new SelectList(
+                new List<Object>{
+                    new {value="MainWebsite", text ="Main Website"},
+                    new {value="Employees", text ="Employees"},
+                    new {value="Clients", text ="Clients"}
+                }, "value", "text", 2))*@
+        </div>
+
+        <div class="row">
+            <span>Website Url :</span>
+            @Html.TextBoxFor(Model => Model.Link, new { placeholder = "Link" })
+        </div>
+
+        <div class="row">
+            <span>Preference :</span>
+            @Html.TextBoxFor(Model => Model.Preference, new { placeholder = "Preference" })
+        </div>
+
+        <div class="row">
+            <span>Description :</span>
+            @Html.TextAreaFor(Model => Model.Description, new { placeholder = "Description" })
+        </div>
+
+        <div class="row">
+            <span>Technology Used :</span>
+            @Html.TextAreaFor(Model => Model.TechnologyUsed, new { placeholder = "TechnologyUsed" })
+        </div>
+
+        <div class="row">
+            <span>Image Path :</span>
+            <input type="file" name="file" />
+            @*@Html.TextBoxFor(Model => Model.objImage.ImagePath, new { placeholder = "ImagePath" })*@
+        </div>
+
+        <div class="row">
+            <span>Show Description :</span>
+            @*@Html.CheckBox(Model => Model.ShowDescription, new { value = Model.ShowDescription, @checked = true });*@
+            @Html.CheckBoxFor(Model => Model.ShowDescription, new { placeholder = "ShowDescription" })
+        </div>
+
+
+        @*<div class="row">
+                <span>Contact Type : </span>
+                @Html.DropDownListFor(Model => Model.ContactType, new SelectList(
+                            new List<Object>{
+                                new {value="Head Office", text ="Head Office"},
+                                new {value="Branch Office", text="Branch Office"}
+                            }, "value", "text", 2))
+            </div>
+            <div class="row">
+                <span>Contact Related : </span>
+                @Html.DropDownListFor(Model => Model.ContactRelated, new SelectList(
+                            new List<Object>{
+                                new {value="MainWebsite", text ="Main Website"},
+                                new {value="Employee", text ="Empoyee"},
+                                new {value="Client", text ="Client"}
+                            }, "value", "text", 1))
+            </div>
+            <div class="row">
+                <span>Preference :</span>
+                @Html.TextBoxFor(Model => Model.Preference, new { placeholder = "Preference" })
+            </div>
+
+            <div class="row">
+                <span>Website Url :</span>
+                @Html.TextBoxFor(Model => Model.LstContactInfo[0].Value, new { placeholder = "Website Url", @id = "Url", @name = "Url" })
+                <input type="button" id="addMore" value="Add TextBox" style="" onclick="addTextbox('holder', '&nbsp;', 'url')" />
+                @*<input type="image" src="~/Content/images/plus.png" class="addmorebtn" title="add more" id="addMore" />*@
+
+        <div class="row">
+            <input type="submit" id="Submit" value="Submit" class="login" />
+        </div>
+    </div>
+}

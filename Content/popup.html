@@ -1,0 +1,7 @@
+﻿ <div ng-show="dcModalDialogCtl.showDialog">
+    <div class="overlay" ng-click="dcModalDialogCtl.clickOverlay()" ng-show="dcModalDialogCtl.showOverlay"></div>
+    <div class="{{dcModalDialogCtl.dcClass}} callout-{{dcModalDialogCtl.calloutPosition}} dc-modal-dialog" style="{{dcModalDialogCtl.dcStyle}}" ng-style="{left: dcModalDialogCtl.offset.left ? dcModalDialogCtl.offset.left : null, top: dcModalDialogCtl.offset.top ? dcModalDialogCtl.offset.top : null}">
+        <div ng-click="dcModalDialogCtl.hide()" ng-show="dcModalDialogCtl.showClose" class="icon-remove-circle close-button"></div>
+        <ng-transclude></ng-transclude>
+    </div>
+</div>

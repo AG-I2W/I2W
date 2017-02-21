@@ -1,0 +1,164 @@
+﻿/*@fonttype:Gabriola,'Times New Roman', Times, serif;
+@plainFont:Candara,'Times New Roman', Times, serif;
+@fontsize:30px;
+@fontheading:60px;
+@errorMsg:red;
+
+
+@greenish:#2b909e;
+@greenishdark:#12606b;
+@lighest:#fff;
+@lightblue:#1b78c2;
+@lightergreen:#80abb4;
+@blue:#0860a6;
+@darkblue:#033f6f;
+@darkestblue:#003a5e;
+@lightgray:#a7a4a4;
+@dark:#696969;
+@darkest:#000;
+@lighterblue:#6199C6;
+@lightestblue:#9ABDDA;
+@lighestbrown:#F3E9DD;
+@lightestgreen:#D5F0E4;
+@shadow: #878e98;
+@gray:#eeeeee;
+@darkgray:#424852;*/
+
+@import "Common.less"; 
+
+
+#top{
+        background:@darkestblue;
+        font-family:@plainFont;
+        color:@whitebckgrnd;
+        font-size:20px;
+        padding:10px;
+        width:100%;
+}
+
+#fixedTop{
+    position:fixed;
+    z-index:1;
+    width:100%;
+    top:0;
+    left:0;   
+    border-bottom:2px solid @darkestblue;
+    background:@whitebckgrnd;
+}
+
+#LogoPart{
+    padding-bottom:10px;
+    padding-top:10px;
+    width:100%;  
+    background:@whitebckgrnd;
+    clear:both;
+
+    #LeftPart{
+        width:45%;
+        display:inline; 
+        float:left;
+        /*padding-bottom:1000px; margin-bottom:-1000px;*/
+        img{
+            vertical-align:middle;
+        }
+        #logo{
+            
+        }
+        #name{
+            width:55%;
+            height:20%;
+            img{
+            
+            }
+        }
+
+        
+        #CompanyName{
+           display:none;
+           float:left;
+           font-size:27px;
+           color:@darkblue;
+        }
+    }
+   
+    #MenuPart{
+        width:55%;
+        display:inline; 
+        float:left;
+        text-align:center;
+        /*padding-bottom: 1500px;
+        margin-bottom: -1500px;
+        bottom:0px;*/
+        margin-top:10px;
+        /*padding-bottom:1000px; margin-bottom:-1000px;*/
+
+        #LoginButton{
+
+        }
+
+        ul{
+            /*overflow:hidden;*/
+            margin-left:10px;
+            li{
+                list-style:none;
+                display:inline;
+                padding-right:8%;
+                a{
+                    color:@greenish;
+                    font-family:@fonttype;
+                    font-weight:bold;
+                    font-size:@fontsize;
+                    text-decoration:none;
+                }
+                   
+                a:hover{
+                    color:@darkestblue;
+                }
+
+                a.selectedMenu{
+                    color:@darkestblue;
+                }
+            }
+
+            li.icon{
+                    display:none;
+                }
+        }
+    } 
+}
+
+#Home{
+    background:@darkestblue url(../Content/images/bckimage.png) no-repeat;
+    vertical-align:central;
+    overflow:hidden;
+    height:700px;
+    background-size:cover;
+    width:100%;
+    /*img{
+
+        width:100%;
+
+    }*/
+    /*h1{
+        float:left;
+        display:inline;
+        color:@lighest;
+    }*/
+}
+
+#UserDetails{
+        font-family:@plainFont;
+        color:@whitebckgrnd;
+        text-align:right;
+        font-size:15px;
+        padding-top:10px;
+        padding-right:10px;
+
+        a{
+            color:@whitebckgrnd;
+        }
+        a:hover{
+            color:@greenish;
+        }
+    }
+

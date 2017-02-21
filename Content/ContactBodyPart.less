@@ -1,0 +1,97 @@
+﻿@import "Common.less";
+
+#Contacts{
+    background:@lighestbrown;
+    color:@blue;
+    overflow:hidden;
+    width:100%;
+    
+    #EmailForm{
+        width:80%;
+        margin:0 auto;
+
+        p{
+            margin:2px 0 2px 0;
+        }
+        input, textarea{
+            width:90%;
+            clear:both;
+            border:@darkbrown;
+            margin:2px 0 2px 0;
+        }
+        input[type="text"]{
+            height:20px;
+        }
+
+        .btn {
+          background: @blue;
+          color: @whitebckgrnd;
+          padding: 5px 10px 5px 10px;
+          text-decoration: none;
+          max-width:100px;
+          margin-top:5px;
+          margin-right:35px;
+          text-align:center;
+          float:right;
+        }
+
+        .left{
+            display:inline; 
+            float:left;
+            width:40%;
+        }
+        .right{
+            display:inline; 
+            float:left;
+            width:40%;
+        }
+    }
+
+    .address{
+        background:@lightbrown;
+        padding:10px;
+        margin:10px;
+        display:inline;
+        float:left;
+        word-break:break-word;
+
+        img{
+            width:25px;
+            height:25px;
+            vertical-align:top;
+            padding-right:10px;
+        }
+        div{
+             margin-top:10px;
+        }
+        p{
+            display:inline-block;
+        }
+    }
+
+    .DirectionBtn{
+          background:@blue;
+          color: @whitebckgrnd;
+          padding: 5px 10px 5px 10px;
+          text-decoration: none;
+          max-width:100px;
+          margin-top:15px;
+          text-align:center;
+          border:0;
+          float:right;
+        }
+
+    #GoogleMap{
+		width:100%;
+        margin-top:10px;
+        margin-bottom:30px;
+        padding:30px;
+        background: url('https://maps.googleapis.com/maps/api/staticmap?center=Anahiem,CA,USA&zoom=11&size=600x200&maptype=roadmap&markers=color:red%7C33.797715,-117.919634') no-repeat;
+        background-size:cover;
+    }
+
+    #innerMap{
+        z-index: 100;        
+        overflow:hidden;
+    }
+}

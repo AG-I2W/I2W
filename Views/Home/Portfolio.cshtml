@@ -1,0 +1,136 @@
+﻿@model IEnumerable<Data.Portfolio>
+
+
+<div id="Portfolio">
+    <div class="Inner">
+        <h1>Portfolio</h1>
+
+        @foreach (var group in Model.GroupBy(m => m.ServiceId))
+        {
+            var i = 0;
+            foreach (var item in group)
+            {
+                if (i == 0)
+                {
+                    <div class="clear"></div>
+                    <h2>@item.objServices.ServiceName</h2>
+                }
+                <div class="eachPortfolio">
+                    <img src="~/@item.objImage.ImagePath" />
+
+                    <div class="sideImageDiv">
+                        <h3>@item.Title</h3>
+                        @if (@item.Description == "Y")
+                        {
+                            <p><b>Description: </b>@item.Description</p>
+                        }
+                        @if (!String.IsNullOrEmpty(@item.TechnologyUsed))
+                        { 
+                            <p><b>Technology Used: </b>@item.TechnologyUsed</p>
+                        }
+                        @if (!String.IsNullOrEmpty(@item.Link))
+                        {
+                            <p><a href="@item.Link" title="@item.Link" target="_blank">Visit Website</a></p>
+                        }
+
+                    </div>
+                </div>
+                        i = i + 1;
+            }
+        }
+
+    </div>
+</div>
+
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Link)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TechnologyUsed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShowDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preference)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsExists)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastUpdatedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastUpdatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comments)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Link)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TechnologyUsed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShowDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preference)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsExists)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdatedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.PortfolioId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.PortfolioId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.PortfolioId })
+            </td>
+        </tr>
+    }
+
+    </table>*@

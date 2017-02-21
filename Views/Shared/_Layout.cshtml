@@ -1,0 +1,179 @@
+﻿@model IEnumerable<Data.Contacts>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Interact 2 World - Provide IT Solutions</title>
+
+    <link href="@Url.Content("~/Content/style.min.css")" rel="stylesheet" type="text/css" />
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no" " />
+    <meta name="description" content="Provide Website Designing, Logo Designing and Software Services. We offer Software Development Services for Windows and Apps for Smarts Phones. Get your e-Business today.">
+    <meta name="keywords" content="Website Designing, Website Development, Logo Designing, Software Development, SEO, Graphic Designing, Banner Designing, Brochures, Magazine Covers, Designing a Website, computer Software Development, Apps Development, mobile Apps Development, iphone App Development, android app development, web development, web designing" />
+
+
+    @RenderSection("Scripts", false/*required*/)
+
+</head>
+<body ng-app="myApp">
+
+    <div id="fixedTop">
+        <div id="top">
+            <div id="TopPart">
+                <div class="topContact">
+                    <div>Contact Us :</div>
+                    @if (Session["Phone"] != null)
+                    {
+                        <div>
+                            <p>
+                                @Session["Phone"]
+                            </p>
+                        </div>
+                    }
+                </div>
+                <div id="SocialLinks">
+                    @Html.Action("SocialLinks", "Login", new { area = "" })
+                </div>
+            </div>
+            <div id="UserDetails">
+                @if (HttpContext.Current.Session["UserName"] != null)
+                {
+                    <p>Hello,  @HttpContext.Current.Session["UserName"].ToString()</p>
+                    @Html.ActionLink("My Dashboard", "Dashboard", "Common", new { area = "Employees" }, new { })
+                }
+            </div>
+        </div>
+
+        <div id="LogoPart">
+            <div id="LeftPart">
+                <img src="@Url.Content("~/Content/images/logo.png")" alt="Interact 2 World" id="logo" />
+                <img src="@Url.Content("~/Content/images/i2w-smallwithtag.png")" alt="Interact 2 World" id="name" />
+
+                <h1 id="CompanyName">
+                    Interact 2 World<br />
+                    <hcaption>Convert Ideas to Solutions</hcaption>
+                </h1>
+            </div>
+
+            <!-- Login Starts Here -->
+            <div id="loginContainer">
+                @Html.Action("Login", "Login", new { area = "" })
+            </div>
+            <!-- Login Ends Here -->
+
+            <div id="MenuPart" class="nav">
+                @*<a href="#" id="LoginButton">LOGIN</a>*@
+                @*<ul class="topnav" id="MainMenu">*@
+                <ul>
+                    @*<li class="first">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { })</li>*@
+                    @*<li class="first">@Html.NavigationLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About Us", "Index", "Home", new { Area = "" }, new { href = "Index#AboutUs" })</li>
+                        <li>@Html.ActionLink("Services", "Index", "Home", new { Area = "" }, new { href = "#Services" })</li>
+                        <li>@Html.ActionLink("Portfolio", "Index", "Home", new { Area = "" }, new { href = "#Portfolio" })</li>
+                        <li>@Html.ActionLink("Contacts", "Index", "Home", new { Area = "" }, new { href = "#Contacts" })</li>*@
+
+                    <li class="first"><a href='@Url.Action("Index", "Home" , new { area="" })#Home'>Home</a></li>
+                    <li><a href='@Url.Action("Index", "Home", new { area = "" })#AboutUs'>About Us</a></li>
+                    <li><a href='@Url.Action("Index", "Home", new { area = "" })#Services'>Services</a></li>
+                    <li><a href='@Url.Action("Index", "Home", new { area = "" })#Portfolio'>Portfolio</a></li>
+                    <li><a href='@Url.Action("Index", "Home", new { area = "" })#Contacts'>Contacts</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div id="MainBody">
+        @RenderBody()
+    </div>
+
+    @Html.Action("Footer", "Login", new { area = "" })
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="@Url.Content("~/Scripts/js/MyAngularJs.js")"></script>    
+    <script src="@Url.Content("~/Scripts/angular-filter.js")"></script>
+
+   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    
+    @* OPEN LOGIN FORM*@
+    
+    <script src="@Url.Content("~/Scripts/js/login.js")"></script>
+
+    @*<script type="text/javascript">
+            var shiftWindow = function () { scrollBy(0, -210) };
+            window.addEventListener("hashchange", shiftWindow);
+            function load() { if (window.location.hash) shiftWindow(); }
+        </script>*@
+
+    <script src="@Url.Content("~/Scripts/js/ScrollScreen.js")"></script>
+    <script src="@Url.Content("~/Scripts/js/modernizr.custom.js")"></script>
+
+
+    <script>
+        //	    SOCIAL-LINK IMAGES
+        $(document).ready(function () {
+            $("#SocialLinks a img").css({ opacity: 0.8 });
+            $("#SocialLinks a img").hover(
+                    function () {
+                        $(this).animate({ top: "-7" });
+                        $(this).css({ opacity: 1 });
+                    },
+                    function () {
+                        $(this).animate({ top: "0" });
+                        $(this).css({ opacity: 0.8 });
+                    }
+                );
+        });
+
+    </script>
+
+
+
+
+    <!-- Script For Mobile Menu Toggel Effect-->
+    <script>
+        //  The function to change the class
+        var changeClass = function (r, className1, className2) {
+            var regex = new RegExp("(?:^|\\s+)" + className1 + "(?:\\s+|$)");
+            if (regex.test(r.className)) {
+                r.className = r.className.replace(regex, ' ' + className2 + ' ');
+            }
+            else {
+                r.className = r.className.replace(new RegExp("(?:^|\\s+)" + className2 + "(?:\\s+|$)"), ' ' + className1 + ' ');
+            }
+            return r.className;
+        };
+
+        //  Creating our button in JS for smaller screens
+        var menuElements = document.getElementById('MenuPart');
+        menuElements.insertAdjacentHTML('afterBegin', '<button type="button" id="menutoggle" class="navtoogle" aria-hidden="true">&nbsp;<i aria-hidden="true" class="icon-menu"> </i>&nbsp;</button>');
+
+        //  Toggle the class on click to show / hide the menu
+        document.getElementById('menutoggle').onclick = function () {
+            changeClass(this, 'navtoogle active', 'navtoogle');
+        }
+
+
+        document.onclick = function (e) {
+            var mobileButton = document.getElementById('menutoggle'),
+                buttonStyle = mobileButton.currentStyle ? mobileButton.currentStyle.display : getComputedStyle(mobileButton, null).display;
+
+            if (buttonStyle === 'block' && e.target !== mobileButton && new RegExp(' ' + 'active' + ' ').test(' ' + mobileButton.className + ' ')) {
+                changeClass(mobileButton, 'navtoogle active', 'navtoogle');
+            }
+        }
+    </script>
+</body>
+
+
+
+</html>

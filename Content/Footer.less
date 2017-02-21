@@ -1,0 +1,103 @@
+﻿/*@fonttype:Gabriola,'Times New Roman', Times, serif;
+@plainFont:Candara,'Times New Roman', Times, serif;
+@fontsize:30px;
+@fontheading:60px;
+@errorMsg:red;
+
+
+@greenish:#2b909e;
+@greenishdark:#12606b;
+@lighest:#fff;
+@lightblue:#1b78c2;
+@lightergreen:#80abb4;
+@blue:#0860a6;
+@darkblue:#033f6f;
+@darkestblue:#003a5e;
+@lightgray:#a7a4a4;
+@dark:#696969;
+@darkest:#000;
+@lighterblue:#6199C6;
+@lightestblue:#9ABDDA;
+@lighestbrown:#F3E9DD;
+@lightestgreen:#D5F0E4;
+@shadow: #878e98;
+@gray:#eeeeee;
+@darkgray:#424852;*/
+
+
+@import "Common.less"; 
+
+#footer{
+    background:@darkestblue;
+    overflow:hidden;
+    color:@lightestblue;
+    font-family:@plainFont;
+    width:100%;
+
+    .MenuList{
+        display:inline;
+        float:left;
+        margin-left:40px;
+
+        li
+        {
+            list-style:none;
+            padding-bottom:7px;
+            text-decoration:none;
+
+            a
+            {
+                text-decoration:none;
+                color:@lightestblue;
+            }
+
+            a:hover
+            {
+                color:@whitebckgrnd;
+            }
+
+            a.selectedMenu
+            {
+                color:@whitebckgrnd;
+            }
+
+            ul{
+                margin-left:35px;
+                display:inline;
+                float:left;
+            }
+        }
+    }
+
+    #ServiceFooterList{
+        ul{
+            column-count:2;
+        }
+    }
+
+    #TermsMenuList
+    {
+        margin-left:0;
+
+        ul{
+            -moz-column-count: 1;
+            -webkit-column-count: 1;
+            column-count: 1;
+    
+            -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+            -moz-column-gap: 40px; /* Firefox */
+            column-gap: 40px;
+    
+            text-decoration:none;
+            color:@lightestblue;
+
+            li a.selectedMenu{
+                color:@whitebckgrnd;
+            }
+        }
+    }
+}
+
+
+
+

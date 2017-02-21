@@ -1,0 +1,127 @@
+﻿@model Data.Contacts
+
+@{
+    ViewBag.Title = "InsertContacts";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+@section Scripts
+{
+    <script>
+        var count = 1
+        function addTextbox(HolderId, value, txtId) {
+            var text = "<div class='row'><span>" + value + "</span><input type='text' id='" + txtId + "' name='" + txtId + count + "' value='" + + "' /></div>";
+            var iframe = document.getElementById(HolderId);
+            iframe.innerHTML += text;
+        }
+        //$(document).ready(function () {
+        //    $("#addMore").click(function () {
+        //        var $ctrl = $('<input/>').attr({ type: 'text', name: 'text', value: 'text' });
+        //        $("#holder").append($ctrl);
+        //        return false;
+        //    });
+        //});
+    </script>
+}
+
+
+<h2>Insert Contacts Information</h2>
+
+@using (Html.BeginForm("InsertContacts", "Insert", FormMethod.Post))
+{
+    <div class="Form">
+        <div class="row">
+            <span>Company Name :</span>
+            @Html.TextBoxFor(Model => Model.CompanyName, new { placeholder = "CompanyName" })
+        </div>
+        <div class="row">
+            <span>Address Line1 :</span>
+            @Html.TextBoxFor(Model => Model.AddressLine1, new { placeholder = "AddressLine1" })
+        </div>
+        <div class="row">
+            <span>Address Line2 :</span>
+            @Html.TextBoxFor(Model => Model.AddressLine2, new { placeholder = "AddressLine2" })
+        </div>
+        <div class="row">
+            <span>City :</span>
+            @Html.TextBoxFor(Model => Model.City, new { placeholder = "City" })
+        </div>
+        <div class="row">
+            <span>State :</span>
+            @Html.TextBoxFor(Model => Model.State, new { placeholder = "State" })
+        </div>
+        <div class="row">
+            <span>Country :</span>
+            @Html.TextBoxFor(Model => Model.Country, new { placeholder = "Country" })
+        </div>
+        <div class="row">
+            <span>Zip Code :</span>
+            @Html.TextBoxFor(Model => Model.PostalCode, new { placeholder = "Zip Code" })
+        </div>
+        <div class="row">
+            <span>Contact Type : </span>
+            @Html.DropDownListFor(Model => Model.ContactType, new SelectList(
+                        new List<Object>{
+                            new {value="Head Office", text ="Head Office"},
+                            new {value="Branch Office", text="Branch Office"}
+                        }, "value", "text", 2))
+        </div>
+        <div class="row">
+            <span>Contact Related : </span>
+            @Html.DropDownListFor(Model => Model.ContactRelated, new SelectList(
+                        new List<Object>{
+                            new {value="MainWebsite", text ="Main Website"},
+                            new {value="Employee", text ="Empoyee"},
+                            new {value="Client", text ="Client"}
+                        }, "value", "text", 1))
+        </div>
+        <div class="row">
+            <span>Preference :</span>
+            @Html.TextBoxFor(Model => Model.Preference, new { placeholder = "Preference" })
+        </div>
+        @{
+            
+        }
+        <div class="row">
+            <span>Website Url :</span>
+            @Html.TextBoxFor(Model => Model.LstContactInfo[0].Value, new { placeholder = "Website Url", @id = "Url", @name = "Url" })
+            <input type="button" id="addMore" value="Add TextBox" style="" onclick="addTextbox('holder', '&nbsp;', 'url')" />
+            @*<input type="image" src="~/Content/images/plus.png" class="addmorebtn" title="add more" id="addMore" />*@
+        </div>
+        <div id="holder">
+        </div>
+        <div class="row">
+            <span>Phone :</span>
+        </div>
+        <div class="row">
+            <span>
+                @Html.DropDownListFor(Model => Model.LstContactInfo[1].Description, new SelectList(
+                        new List<Object>{
+                            new {value="Work", text ="Work"},
+                            new {value="Home", text ="Home"},
+                            new {value="Cell", text ="Cell"}
+                        }, "value", "text", 1), new { @style = "width: 100px;" })
+            </span>
+            @Html.TextBoxFor(Model => Model.LstContactInfo[1].Value, new { placeholder = "Phone" })
+        </div>
+    @*<div class="row">
+            <span>Work Phone :</span>
+            @Html.TextBoxFor(Model => Model.LstContactInfo[2].Details, new { placeholder = "Office Phone" })
+        </div>*@
+    <div class="row">
+        <span>Email :</span>
+    </div>
+    <div class="row">
+        <span>
+            @Html.DropDownListFor(Model => Model.LstContactInfo[2].Description, new SelectList(
+                        new List<Object>{
+                            new {value="Work", text ="Work"},
+                            new {value="Personal", text ="Personal"}
+                        }, "value", "text", 1), new { @style = "width: 100px;" })
+    </span>
+    @Html.TextBoxFor(Model => Model.LstContactInfo[2].Value, new { placeholder = "Email" })
+</div>
+<div class="row">
+    <input type="submit" id="Submit" value="Submit" class="login" />
+</div>
+</div>
+}

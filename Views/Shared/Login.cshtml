@@ -1,0 +1,77 @@
+﻿@model Interact2World.Models.LoginModel
+
+@*<fieldset>
+        <legend>LoginModel</legend>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+*@
+
+@if (HttpContext.Current.Session["UserName"] != null)
+{
+    <a href="@Url.Action("Logout", "Login", new { area = "" })" id="logoutButton" class="logoutButton"><span>Logout</span></a>
+    @*@Html.ActionLink("Logout", "logout", "Login", new { @class = "logoutButton" })*@
+}
+else
+{
+    <a href="#" id="loginButton" class="loginButton"><span>Login</span><em></em></a>
+}
+
+
+<div class="clear"></div>
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+    <div id="loginBox">
+        <table id="loginForm">
+            <tr>
+                <td class="LoginHeader">
+                    Clients and Employees Login
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="email">User Name</label>
+                    @Html.TextBoxFor(Model => Model.UserName, new { placeholder = "User Name" })
+                    @Html.ValidationMessageFor(Model => Model.UserName)
+                    @*<input type="text" name="email" id="email" class="email" />*@
+                    @*<asp:TextBox ID="tb_UserName" CssClass="email" runat="server"></asp:TextBox>*@
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="password">Password</label>
+                    @Html.PasswordFor(Model => Model.Password, new { placeholder = "Password" })
+                    @Html.ValidationMessageFor(Model => Model.Password)
+                    @*<asp:TextBox ID="tb_Password" CssClass="password" runat="server" TextMode="Password"></asp:TextBox>*@
+                    @* <input type="password" name="password" id="password" class="password" />*@
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @*<asp:Button ID="bt_Submit" CssClass="login" runat="server" onclick="bt_Submit_Click" Text="Sign in" />*@
+                    <input type="submit" id="login" value="Sign in" class="login" />
+                    <label for="checkbox"><input type="checkbox" id="checkbox" />Remember me</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span><a href="#">Forgot your password?</a></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @if (TempData["ErrorMessage"] != null)
+                    {
+                        <p class="ErrorMessage">@TempData["ErrorMessage"]</p>
+                    }
+
+                    @*  @Html.ValidationSummary(true, "Login failed. Check your login details.");*@
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+

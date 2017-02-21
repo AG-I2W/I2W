@@ -1,0 +1,68 @@
+﻿@import "Common.less"; 
+
+
+.GridTable { 
+    width: 100%; 
+    background-color: @whitebckgrnd; 
+    margin: 5px 0 5px 0; 
+    border: solid 1px @greenish; 
+    border-collapse:collapse; 
+    text-align:center;
+
+    td { 
+        padding: 2px; 
+        border: solid 1px @lightestblue; 
+        color: @blue; 
+    }
+    th { 
+        padding: 4px 2px; 
+        color: @whitebckgrnd; 
+        background: @darkblue url(grd_head.png) repeat-x top; 
+        border-left: solid 1px @lightestblue; 
+        font-size: 0.9em;  
+
+        background: @darkestblue; /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(@blue, @darkestblue); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(@blue, @darkestblue); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(@blue, @darkestblue); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(@blue, @darkestblue); /* Standard syntax */
+    }
+
+   tr:nth-child(odd){background-color: @lighestbrown}
+
+   .odd{background-color: @lighestbrown}
+
+    img{
+        width:100px;
+        height:100px;
+    }
+
+    .rowheading{
+        text-align:left;
+        font-size:20px;
+        font-family:@fonttype;
+        color:@darkblue;
+        font-weight:bold;
+        background:@whitebckgrnd;
+        padding-left:10px;
+    }
+
+    .icon{
+        width:30px;
+        height:30px;
+    }
+}
+
+/*.GridTable .alt { background: #fcfcfc url(grd_alt.png) repeat-x top; }
+.GridTable .pgr { background: #424242 url(grd_pgr.png) repeat-x top; }
+.GridTable .pgr table { margin: 5px 0; }
+.GridTable .pgr td { 
+    border-width: 0; 
+    padding: 0 6px; 
+    border-left: solid 1px #666; 
+    font-weight: bold; 
+    color: #fff; 
+    line-height: 12px; 
+ }   
+.GridTable .pgr a { color: #666; text-decoration: none; }
+.GridTable .pgr a:hover { color: #000; text-decoration: none; }*/

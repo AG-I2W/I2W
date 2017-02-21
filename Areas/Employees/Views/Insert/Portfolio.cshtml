@@ -1,0 +1,68 @@
+﻿@model Data.Portfolio
+
+
+<h2>Insert Portfolio</h2>
+
+@using (Html.BeginForm("InsertPortfolio", "Insert", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Portfolio</h4>
+        </div>
+        <div class="modal-body">
+            <div class="Form">
+                <div class="row">
+                    <span>Title :</span>
+                    @Html.TextBoxFor(Model => Model.Title, new { placeholder = "Title" })
+                </div>
+
+                <div class="row">
+                    <span>Service :</span>
+
+                    @Html.DropDownList("ServiceId", (IEnumerable<SelectListItem>)ViewData["ServiceLst"], new { id = "ServiceId" })
+
+                </div>
+
+                <div class="row">
+                    <span>Website Url :</span>
+                    @Html.TextBoxFor(Model => Model.Link, new { placeholder = "Link" })
+                </div>
+
+                <div class="row">
+                    <span>Preference :</span>
+                    @Html.TextBoxFor(Model => Model.Preference, new { placeholder = "Preference" })
+                </div>
+
+                <div class="row">
+                    <span>Description :</span>
+                    @Html.TextAreaFor(Model => Model.Description, new { placeholder = "Description" })
+                </div>
+
+                <div class="row">
+                    <span>Technology Used :</span>
+                    @Html.TextAreaFor(Model => Model.TechnologyUsed, new { placeholder = "TechnologyUsed" })
+                </div>
+
+                <div class="row">
+                    <span>Image Path :</span>
+                    <input type="file" name="file" />
+                </div>
+
+                <div class="row">
+                    <span>Show Description :</span>
+                    @Html.CheckBoxFor(Model => Model.ShowDescription, new { placeholder = "ShowDescription" })
+                </div>
+
+                <div class="row">
+                    <input type="submit" id="Submit" value="Submit" class="login" />
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+}
+
+

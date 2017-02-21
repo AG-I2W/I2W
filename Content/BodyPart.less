@@ -1,0 +1,80 @@
+﻿@import "Common.less"; 
+
+
+#MainBody{
+    z-index:-1;
+    margin-top:205px;
+  }  
+
+
+.Inner{
+    width:60%;
+    margin:0 auto;
+    overflow:hidden;
+}
+
+#AboutUs{
+    background:@whitebckgrnd;
+    padding-top:20px;
+    padding-bottom:20px;
+    margin-top:5px;
+    color:@blue;
+
+    p{
+         clear:both;
+         margin-bottom:10px;
+         font-family:@plainFont;
+    }
+
+}
+
+@import "ServiceBodyPart.less";
+
+@import "PortfolioBodyPart.less";
+
+@import "ContactBodyPart.less";
+
+.Form{
+    width:100%;
+
+    .row{
+        width:100%;
+        clear:both;
+        padding:10px;
+
+        span{
+            display:inline; 
+            float:left;
+            width:20%;
+        }
+
+        input, select, textarea{
+            width:300px;
+        }
+
+        textarea{
+            height:200px;
+        }
+
+        
+        CheckBox{
+            float:left;
+        }
+
+        ul{
+            li{
+                list-style:none;
+            }
+
+            display:inline;
+            float:left;
+        }
+    }
+}
+
+input[type="image"].addmorebtn{
+   
+    width:20px;
+    height:20px;
+    vertical-align:bottom;
+}

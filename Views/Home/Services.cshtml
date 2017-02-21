@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Data.Services>
+
+<div id="Services">
+    <div class="Inner">
+        <h1>Our Services</h1>
+
+        <p>
+            Interact 2 World is Software Development and Website Designing Company, offering a wide range of services that covers almost all
+            fields of Website Designing and Software Development in the best possible way.
+        </p>
+        <p>
+            Our expertise does not limit itself to Software Development and Website Designing, but also it includes Search Engine Optimization,
+            Graphic Designing, Logo Designing, Multimedia and Content Writing.
+        </p>
+
+
+        @foreach (var item in Model)
+        {
+            if (@item.IsExists == true)
+            {
+                <div class="EachService">
+                    <h3>@item.ServiceName</h3>
+                    <img src="~/@item.ObjImage.ImagePath" />
+                    <p>@item.Description</p>
+
+                    
+                </div>
+            }
+        }
+
+        <div style="clear:both;"></div>
+
+    </div>  
+
+</div>

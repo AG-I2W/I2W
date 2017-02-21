@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Data.SocialLinks>
+
+
+@if (Model.Any())
+{
+    <span> Follow Us : &nbsp;&nbsp;</span>
+    <p>
+        @foreach (var item in Model)
+        {
+            if (@item.IsExists == true)
+            {
+                <a href=@item.LinkUrl id="@item.LinkType" title="@item.LinkType" target="_blank">
+                    <img src="~/@item.objImage.ImagePath" alt='@item.LinkType' />
+                </a>
+            }
+        }
+    </p>
+}

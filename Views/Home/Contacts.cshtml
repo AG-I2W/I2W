@@ -1,0 +1,172 @@
+﻿@model IEnumerable<Data.Contacts>
+
+
+
+<div id="Contacts">
+    <div class="Inner">
+        <h1>Contacts</h1>
+
+        <div id="EmailForm">
+            <h2>We'd love to hear from you</h2>
+            <div class="left">
+                <span>
+                    <p>Name</p>
+                    <input id="tbName" type="text" />
+                </span>
+                <span>
+                    <p>Email</p>
+                    <input id="tbEmail" type="text" />
+                </span>
+                <span>
+                    <p>Company/Organisation</p>
+                    <input id="tbCompany" type="text" />
+                </span>
+            </div>
+
+            <div class="right">
+                <span>
+                    <p>Message</p>
+                    <textarea id="tbMessage" rows="7" cols="20"></textarea>
+                </span>
+                <span>
+                    <input class="btn" id="btSubmit" type="submit" value="Submit" />
+                </span>
+            </div>
+
+            <div class="clear">
+
+            </div>
+        </div>
+
+
+        <div id="GoogleMap">
+
+            <div id="innerMap">
+                @foreach (var item in Model)
+                {
+                    if (@item.IsExists == true)
+                    {
+                        <div class="address">
+                            <h4>@item.ContactType</h4>
+
+                            <img src="~/Content/images/AddressIcon.png" />
+                            <p>
+                                @item.AddressLine1
+                                @if (!String.IsNullOrEmpty(item.AddressLine2))
+                        {
+                                <b>,<br /></b>
+                                @item.AddressLine2
+                        }
+                                <br />
+                                @item.City
+                                @if (!String.IsNullOrEmpty(item.City))
+                        {
+                                <b>,</b>
+                        }
+                                @if (!String.IsNullOrEmpty(item.State))
+                        {
+
+                                @item.State
+                                <b>,</b>
+                        }
+                                <br />
+                                @item.Country
+                                @if (!String.IsNullOrEmpty(item.PostalCode))
+                        {
+                                <b> - </b>
+                                @item.PostalCode
+                        }
+                            </p>
+                            @if (@item.LstContactInfo.Where(m => m.ContactType == "Phone").Count() > 0)
+                    {
+                            <div>
+                                <img src="~/Content/images/PhoneIcon.png" />
+                                <p>
+                                    @foreach (var subitem in @item.LstContactInfo.Where(m => m.ContactType == "Phone"))
+                                {
+                                    @subitem.Value<br />
+                                }
+                                </p>
+                            </div>
+                    }
+
+                            @if (@item.LstContactInfo.Where(m => m.ContactType == "Email").Count() > 0)
+                    {
+                            <div>
+                                <img src="~/Content/images/EmailIcon.png" />
+                                <p>
+                                    @foreach (var subitem in @item.LstContactInfo.Where(m => m.ContactType == "Email"))
+                                {
+                                    @subitem.Value<br />
+                                }
+                                </p>
+                            </div>
+                    }
+                            @if (@item.LstContactInfo.Where(m => m.ContactType == "WebsiteUrl").Count() > 0)
+                    {
+                            <div>
+                                <img src="~/Content/images/UrlIcon.gif" />
+                                <p>
+                                    @foreach (var subitem in @item.LstContactInfo.Where(m => m.ContactType == "WebsiteUrl"))
+                                {
+                                    @subitem.Value<br />
+                                }
+                                </p>
+                            </div>
+                    }
+
+                            @if((!String.IsNullOrEmpty(item.AddressLine1)) && (!String.IsNullOrEmpty(item.State)))
+                    {
+                            <form action="http://maps.google.com/maps" method="get" target="_blank">
+                                <input type="hidden" name="daddr" value="@item.AddressLine1  + ' ' + @item.City + ' ' + @item.State + ' ' + @item.Country + ' ' + @item.PostalCode" />
+                                <input type="submit" value="Get Directions" class="DirectionBtn" />
+                            </form>
+                    }
+                        </div>
+                    }
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@*<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAIwwvYiKRZ4iqt_K6nTyh691DfiVux1PU&sensor=false"></script>
+
+<script type="text/javascript">
+
+    // The latitude and longitude of your business / place
+    var position = [33.797715, -117.919634];
+
+    function showGoogleMaps() {
+
+        var latLng = new google.maps.LatLng(position[0], position[1]);
+
+        var mapOptions = {
+            zoom: 16, // initialize zoom level - the max value is 21
+            streetViewControl: false, // hide the yellow Street View pegman
+            scaleControl: true, // allow users to zoom the Google Map
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            center: latLng
+        };
+
+        map = new google.maps.Map(document.getElementById('GoogleMap'),
+            mapOptions);
+
+        // Show the default red marker at the location
+        marker = new google.maps.Marker({
+            position: latLng,
+            map: map,
+            draggable: false,
+            animation: google.maps.Animation.DROP
+        });
+    }
+
+    google.maps.event.addDomListener(window, 'load', showGoogleMaps);
+</script>*@
+
+
+
+
+

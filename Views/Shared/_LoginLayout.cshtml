@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@RenderSection("Scripts", false/*required*/)
+@*@Html.Action("../../Menu/VerticalMenu")*@
+
+
+<div id="LoginBody">
+    <div id="verticalmenu">
+        <ul>
+            @Html.Action("VerticalMenu", "Login", new { area ="" })
+            @*@foreach (var item in Model)
+            { 
+                <li>@Html.ActionLink(@item.DisplayName, @item.Url, "Login")</li>
+            }*@
+            @*if()
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contacts</a></li>*@
+        </ul>
+    </div>
+
+    <div id="LoginView">
+        <div id="ErrMsg">
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <p>@TempData["ErrorMessage"]</p>
+            }
+        </div>
+
+        <div class="clear"></div>
+
+        @RenderBody()
+    </div>
+
+    
+</div>
+

@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<h2>Dashboard</h2>
+
+
+@if (Request.IsAuthenticated)
+{
+    @ViewBag.UserName
+}

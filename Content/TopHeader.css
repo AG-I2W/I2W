@@ -1,0 +1,116 @@
+﻿p.ErrorMessage {
+  color: red;
+}
+#ErrMsg p {
+  color: red;
+  font-family: Candara, 'Times New Roman', Times, serif;
+  padding: 10px;
+}
+h1 {
+  font-family: Gabriola, 'Times New Roman', Times, serif;
+}
+h2 {
+  font-size: 25px;
+  font-family: Gabriola, 'Times New Roman', Times, serif;
+  color: #033f6f;
+}
+h3 {
+  font-size: 25px;
+  text-align: center;
+  font-family: Gabriola, 'Times New Roman', Times, serif;
+}
+h4 {
+  font-size: 25px;
+  font-family: Gabriola, 'Times New Roman', Times, serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  margin: 0 auto;
+}
+.clear {
+  clear: left;
+}
+.errorLabel {
+  font-family: Gabriola, 'Times New Roman', Times, serif;
+  color: red;
+}
+hcaption {
+  color: #7d684f;
+  vertical-align: super;
+  font-size: 16px;
+  padding-left: 30px;
+  position: relative;
+}
+.selectedMenu {
+  color: #003a5e;
+}
+#TopPart {
+  clear: both;
+  height: 30px;
+}
+#TopPart #SocialLinks {
+  /*text-align:right;
+        font-size:16px;
+        margin-right:20px;
+        display:inline;*/
+  font-size: 16px;
+  bottom: 0;
+  display: inline;
+  float: right;
+  padding-right: 20px;
+}
+#TopPart #SocialLinks span {
+  vertical-align: top;
+}
+#TopPart #SocialLinks p {
+  display: inline;
+}
+#TopPart #SocialLinks a img {
+  position: relative;
+  display: inline;
+  height: 25x;
+  width: 25px;
+  margin-left: 6px;
+  border: 0px;
+  text-decoration: none;
+  outline: none;
+}
+#TopPart .EachSocialLink img {
+  display: inline;
+  height: 30px;
+  width: 30px;
+  margin-left: 6px;
+  border: 0;
+  text-decoration: none;
+  outline: none;
+}
+#TopPart .topContact {
+  overflow: hidden;
+  font-size: 18px;
+  display: inline;
+  float: left;
+}
+#TopPart .topContact img {
+  width: 25px;
+  height: 25px;
+  vertical-align: top;
+  padding-right: 10px;
+}
+#TopPart .topContact div {
+  margin-top: 10px;
+  display: inline;
+  float: left;
+}
+#TopPart .topContact p {
+  display: inline-block;
+  margin-left: 5px;
+}
+#TopPart .topContact a {
+  color: #ffffff;
+  text-decoration: none;
+}
+/*# sourceMappingURL=TopHeader.css.map */

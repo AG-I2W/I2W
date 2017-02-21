@@ -1,0 +1,350 @@
+﻿p.ErrorMessage {
+  color: red;
+}
+#ErrMsg p {
+  color: red;
+  font-family: Candara, 'Times New Roman', Times, serif;
+  padding: 10px;
+}
+h1 {
+  font-family: Gabriola, 'Times New Roman', Times, serif;
+}
+h2 {
+  font-size: 25px;
+  font-family: Gabriola, 'Times New Roman', Times, serif;
+  color: #033f6f;
+}
+h3 {
+  font-size: 25px;
+  text-align: center;
+  font-family: Gabriola, 'Times New Roman', Times, serif;
+}
+h4 {
+  font-size: 25px;
+  font-family: Gabriola, 'Times New Roman', Times, serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  margin: 0 auto;
+}
+.clear {
+  clear: left;
+}
+.errorLabel {
+  font-family: Gabriola, 'Times New Roman', Times, serif;
+  color: red;
+}
+hcaption {
+  color: #7d684f;
+  vertical-align: super;
+  font-size: 16px;
+  padding-left: 30px;
+  position: relative;
+}
+.selectedMenu {
+  color: #003a5e;
+}
+@media only screen and (max-device-width: 1025px) {
+  #LogoPart #logo {
+    width: 150px;
+    padding-bottom: 34px;
+  }
+  #LogoPart #MenuPart ul li a {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-device-width: 680px) {
+  .topContact {
+    font-size: 16px;
+    clear: left;
+  }
+  #fixedTop {
+    border: 0;
+  }
+  #TopPart {
+    height: auto;
+    padding-bottom: 20px;
+  }
+  #TopPart #SocialLinks {
+    padding-right: 0;
+    padding-top: 10px;
+  }
+  #LogoPart #LeftPart {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+  }
+  #LogoPart #LeftPart #logo {
+    width: 100px;
+    padding-bottom: 0;
+  }
+  #LogoPart #LeftPart #name {
+    display: none;
+  }
+  #LogoPart #LeftPart #CompanyName {
+    display: inline;
+    float: right;
+    padding-right: 10px;
+    vertical-align: middle;
+  }
+  #loginContainer {
+    display: none;
+  }
+  .Inner {
+    width: 90%;
+    text-align: justify;
+  }
+  #Services .Inner .EachService {
+    max-width: 100%;
+    display: block;
+    height: auto;
+  }
+  #Services .Inner .EachService h3 {
+    border-bottom: 1px solid;
+    margin-bottom: 5px;
+  }
+  #Services .Inner .EachService img {
+    display: none;
+  }
+  #Portfolio .eachPortfolio {
+    width: 85%;
+  }
+  #Portfolio .eachPortfolio h3 {
+    font-size: 20px;
+  }
+  #Portfolio .eachPortfolio p {
+    font-size: 13px;
+  }
+  #Portfolio .eachPortfolio img {
+    width: 100px;
+    height: 100px;
+  }
+  #Portfolio .eachPortfolio .sideImageDiv {
+    width: 50%;
+  }
+  #Contacts #GoogleMap {
+    padding: 0;
+    margin: 0 auto;
+  }
+  #Contacts #GoogleMap #innerMap {
+    width: 100%;
+  }
+  #Contacts #GoogleMap #innerMap .address {
+    width: 100%;
+  }
+  #Contacts #GoogleMap #innerMap .DirectionBtn {
+    margin-right: 50px;
+  }
+  #Contacts #EmailForm {
+    display: none;
+  }
+}
+/*For Mobile Menu Display*/
+.nav .navtoogle {
+  display: none;
+}
+@font-face {
+  font-family: 'icomoon';
+  src: url('font/icomoon.eot');
+  src: url('font/icomoon.eot?#iefix') format('embedded-opentype'), url('font/icomoon.woff') format('woff'), url('font/icomoon.ttf') format('truetype'), url('font/icomoon.svg#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.icon-menu {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+/* Styling the toggle menu link and hiding it */
+.nav .navtoogle {
+  background: #033f6f;
+  color: #ffffff;
+  border: 0px;
+  padding: 5px;
+  float: right;
+}
+.icon-menu:before {
+  content: "\f0c9";
+}
+@media screen and (max-width: 680px) {
+  @font-face {
+    font-family: 'icomoon';
+    src: url('font/icomoon.svg') format('svg');
+  }
+  #LogoPart #MenuPart {
+    display: block;
+    width: 95%;
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+  #LogoPart #MenuPart ul {
+    width: 100%;
+  }
+  #LogoPart #MenuPart ul li {
+    display: block;
+    text-align: left;
+    border-bottom: 1px solid #033f6f;
+    width: 85%;
+  }
+  #LogoPart #MenuPart ul li a {
+    width: 100%;
+    display: block;
+    font-size: 30px;
+  }
+  /* Unhiding the styled menu link */
+  .nav .navtoogle {
+    margin: 0;
+    display: block;
+  }
+  /* Animating the height of the navigation when the button is clicked */
+  /* When JavaScript is disabled, we hide the menu */
+  .no-js .nav ul {
+    max-height: 30em;
+    overflow: hidden;
+  }
+  /* When JavaScript is enabled, we hide the menu */
+  .js .nav ul {
+    max-height: 0em;
+    overflow: hidden;
+  }
+  /* Displaying the menu when the user has clicked on the button*/
+  .js .nav .active + ul {
+    max-height: 30em;
+    overflow: hidden;
+    -webkit-transition: max-height 0.4s;
+    -moz-transition: max-height 0.4s;
+    -o-transition: max-height 0.4s;
+    -ms-transition: max-height 0.4s;
+    transition: max-height 0.4s;
+  }
+}
+/*// Smartphones (portrait and landscape) ----------- 
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+// Styles 
+    .mobile-hide{ display: none !important; }
+    #Services{
+       height:auto;
+       max-width:480px;
+   }
+
+   #Contacts{
+       width:auto;
+       max-width:480px;
+   }
+    .Inner{
+       
+   }
+}
+
+// Smartphones (landscape) -----------
+@media only screen 
+and (min-width : 321px) {
+// Styles 
+    .mobile-hide{ display: none !important; }
+    #Services{
+       height:auto;
+      min-width : 321px;
+   }
+
+   #Contacts{
+       width:auto;
+       min-width : 321px;
+   }
+}
+
+// Smartphones (portrait) ----------- 
+@media only screen 
+and (max-width : 320px) {
+// Styles 
+    .mobile-hide{ display: none !important; }
+     #Services{
+       height:auto;
+      max-width : 320px;
+   }
+
+   #Contacts{
+       width:auto;
+       max-width : 320px;
+   }
+}
+
+
+// iPads (portrait and landscape) ----------- 
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+//Styles 
+    .mobile-hide{ display: inline !important; }
+    #Services{
+       height:auto;
+      max-width : 1024px;
+   }
+
+   #Contacts{
+       width:auto;
+       max-width : 1024px;
+   }
+}
+
+// iPads (landscape) ----------- 
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+//Styles 
+    .mobile-hide{ display: inline !important; }
+    #Services{
+       height:auto;
+      max-width : 1024px;
+   }
+
+   #Contacts{
+       width:auto;
+       max-width : 1024px;
+   }
+}
+
+// iPads (portrait) ----------- 
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+// Styles 
+    .mobile-hide{ display: inline !important; }
+    #Services{
+       height:auto;
+      max-width : 1024px;
+   }
+
+   #Contacts{
+       width:auto;
+       max-width : 1024px;
+   }
+}
+
+
+// iPhone 4 ----------- 
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+// Styles 
+
+}
+
+
+@media only screen and (max-width: 900px) {
+   .mobile-hide{ display: none !important; }
+
+}*/
+/*# sourceMappingURL=Mobile.css.map */

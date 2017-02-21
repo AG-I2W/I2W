@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Data.Services>
+
+<div id="footer">
+    <div class="Inner">
+        <div id="FooterMenu">
+            <ul class="MenuList">
+                <li class="first"><a href='@Url.Action("Index", "Home" , new { area="" })#Home'>Home</a></li>
+                <li><a href='@Url.Action("Index", "Home" , new { area="" })#AboutUs'>About Us</a></li>
+
+                <li><a href='@Url.Action("Index", "Home" , new { area="" })#Portfolio'>Portfolio</a></li>
+                <li><a href='@Url.Action("Index", "Home" , new { area="" })#Contacts'>Contacts</a></li>
+            </ul>
+            <ul class="MenuList" id="ServiceFooterList">
+                @*<li>
+                    @Html.ActionLink("Services", "Services", "Home")
+                </li>*@
+                <li><a href='@Url.Action("Index", "Home" , new { area="" })#Services'>Services</a></li>
+                <li id="serviceFooter">
+                    <ul>
+                        @foreach (var item in Model)
+                    {
+                            <li>
+                                <a href='@Url.Action("Index", "Home" , new { area="" })#Services'>@item.ServiceName</a>
+                                @*@Html.ActionLink(@item.ServiceName, "Services", "Home")*@
+                            </li>
+
+                    }
+
+                        @*@Html.Action("ServiceMenu")*@
+                    </ul>
+                </li>
+            </ul>
+            <ul class="MenuList" id="TermsMenuList">
+                <li>Terms and Policies</li>
+                <li>
+                    <ul>
+                        <li>
+                            <a href="@Url.Content("~/Policies/TermsOfServices.pdf")" rel="Terms of Services">Terms of Services</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Content("~/Policies/RefundPolicies.pdf")" rel="Refund Policies">Refund Policies</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Content("~/Policies/PrivacyPolicies.pdf")" rel="Refund Policies">Privacy Policies</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Content("~/Policies/HowWeWork.pdf")" rel="Refund Policies">How We Work!</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

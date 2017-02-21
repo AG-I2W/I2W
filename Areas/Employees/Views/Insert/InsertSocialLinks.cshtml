@@ -1,0 +1,39 @@
+﻿@model Data.SocialLinks
+
+@{
+    ViewBag.Title = "InsertSocialLinks";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<h2>Insert Social Links</h2>
+
+@using (Html.BeginForm("InsertSocialLinks", "Insert", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="Form">
+        <div class="row">
+            <span>Media Type :</span>
+            @Html.TextBoxFor(Model => Model.LinkType, new { placeholder = "Social Media Type" })
+        </div>
+
+        <div class="row">
+            <span>Url :</span>
+            @Html.TextBoxFor(Model => Model.LinkUrl, new { placeholder = "URL" })
+        </div>
+
+        <div class="row">
+            <span>Preference :</span>
+            @Html.TextBoxFor(Model => Model.Preference, new { placeholder = "Preference" })
+        </div>
+
+        <div class="row">
+            <span>Image Path :</span>
+            <input type="file" name="file" />
+            @*@Html.TextBoxFor(Model => Model.objImage.ImagePath, new { placeholder = "ImagePath" })*@
+        </div>
+
+        <div class="row">
+            <input type="submit" id="Submit" value="Submit" class="login" />
+        </div>
+    </div>
+}
+

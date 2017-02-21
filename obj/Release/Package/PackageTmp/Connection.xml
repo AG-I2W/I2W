@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Configuration>
+  <appsettings>
+    <ServerName>ANSHUL</ServerName>
+    <ServerPort>1433</ServerPort>
+    <UserName></UserName>
+    <Password></Password>
+    <Database>Interact2World</Database>
+    <IntegratedSecurity>SSPI</IntegratedSecurity>
+    <TrustedConnection>False</TrustedConnection>
+  </appsettings>
+</Configuration>

@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Data.MenuItem>
+
+
+@foreach(var item in Model)
+{
+    if(@item.IsExists == true)
+    { 
+        <li>@Html.ActionLink(@item.DisplayName, @item.View, @item.Controller, new { Area = @item.MenuType }, new { })</li>
+    }
+}
+
+@*@Html.ActionLink("About", "About", "About", new { Area = "Employees" }, new { })*@

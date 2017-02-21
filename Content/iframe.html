@@ -1,0 +1,8 @@
+﻿<div ng-show="dcModalDialogCtl.showDialog">
+    <div class="overlay" ng-click="dcModalDialogCtl.clickOverlay()" ng-show="dcModalDialogCtl.showOverlay"></div>
+    <div class="{{dcModalDialogCtl.dcClass}} callout-{{dcModalDialogCtl.calloutPosition}} dc-modal-dialog" ng-style="{left: dcModalDialogCtl.offset.left ? dcModalDialogCtl.offset.left : null, top: dcModalDialogCtl.offset.top ? dcModalDialogCtl.offset.top : null}">
+        <div ng-click="dcModalDialogCtl.hide()" ng-show="dcModalDialogCtl.showClose" class="icon-remove-circle close-button"></div>
+        <iframe ng-src="{{dcModalDialogCtl.src}}" class="{{dcModalDialogCtl.dcClass}} dc-modal-iframe" style="{{dcModalDialogCtl.dcStyle}}">
+        </iframe>
+    </div>
+</div>

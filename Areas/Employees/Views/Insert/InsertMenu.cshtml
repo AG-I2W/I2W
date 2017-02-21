@@ -1,0 +1,73 @@
+﻿@model Data.MenuItem
+
+@{
+    ViewBag.Title = "InsertMenu";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+
+<h2>Insert Menu</h2>
+
+@using (Html.BeginForm("InsertMenu", "Insert", FormMethod.Post))
+{
+    <div class="Form">
+        <div class="row">
+            <span>Menu Name :</span>
+            @Html.TextBoxFor(Model => Model.MenuName, new { placeholder = "MenuName" })
+        </div>
+        <div class="row">
+            <span>Display Name :</span>
+            @Html.TextBoxFor(Model => Model.DisplayName, new { placeholder = "DisplayName" })
+        </div>
+        <div class="row">
+            <span>Menu Description :</span>
+            @Html.TextBoxFor(Model => Model.MenuDescription, new { placeholder = "MenuDescription" })
+        </div>
+        <div class="row">
+            <span>Url :</span>
+            @Html.TextBoxFor(Model => Model.Url, new { placeholder = "Url" })
+        </div>
+        <div class="row">
+            <span>Has Parent :</span>
+            @*@Html.DropDownListFor(Model => Model.HasParent, new { placeholder = "HasParent" })*@
+
+            @Html.CheckBoxFor(Model => Model.HasParent, new { placeholder = "HasParent" })
+
+        </div>
+        <div class="row">
+            <span>Parent Id :</span>
+            @*@Html.DropDownListFor(Model => Model.ParentId, new { placeholder = "ParentId" })*@
+            @*@Html.DropDownListFor(Model => Model.MenuId, new SelectList(
+                        @Model.MenuId
+                    ))*@
+        </div>
+        <div class="row">
+            <span>Menu Type :</span>
+            @*@Html.DropDownListFor(Model => Model.MenuType, new { placeholder = "MenuType" })*@
+            @Html.DropDownListFor(Model => Model.MenuType, new SelectList(
+                        new List<Object>{
+                            new {value="MainWebsite", text ="Main Website"},
+                            new {value="Employees", text ="Employees"},
+                            new {value="Clients", text ="Clients"}
+                        }, "value", "text", 2))
+            @*<select id="MenuType">
+                    <option value="MainWebsite">Main Website</option>
+                    <option value="Employee">Employee</option>
+                    <option value="Client">Client</option>
+                </select>*@
+        </div>
+        <div class="row">
+            <span>Preference :</span>
+            @Html.TextBoxFor(Model => Model.Preference, new { placeholder = "Preference" })
+        </div>
+        <div class="row">
+            <span>Comments :</span>
+            @Html.TextAreaFor(Model => Model.Comments, new { placeholder = "Comments" })
+        </div>
+
+        <div class="row">
+            <input type="submit" id="Submit" value="Submit" class="login" />
+        </div>
+
+    </div>
+}

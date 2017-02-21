@@ -1,0 +1,129 @@
+﻿/*@fonttype:Gabriola,'Times New Roman', Times, serif;
+@plainFont:Candara,'Times New Roman', Times, serif;
+@fontsize:30px;
+@fontheading:60px;
+@errorMsg:red;
+
+
+@greenish:#2b909e;
+@greenishdark:#12606b;
+@lighest:#fff;
+@lightblue:#1b78c2;
+@lightergreen:#80abb4;
+@blue:#0860a6;
+@darkblue:#033f6f;
+@darkestblue:#003a5e;
+@lightgray:#a7a4a4;
+@dark:#696969;
+@darkest:#000;
+@lighterblue:#6199C6;
+@lightestblue:#9ABDDA;
+@lighestbrown:#F3E9DD;
+@lightestgreen:#D5F0E4;
+@shadow: #878e98;
+@gray:#eeeeee;
+@darkgray:#424852;*/
+p.ErrorMessage {
+  color: red;
+}
+#ErrMsg p {
+  color: red;
+  font-family: Candara, 'Times New Roman', Times, serif;
+  padding: 10px;
+}
+h1 {
+  font-family: Gabriola, 'Times New Roman', Times, serif;
+}
+h2 {
+  font-size: 25px;
+  font-family: Gabriola, 'Times New Roman', Times, serif;
+  color: #033f6f;
+}
+h3 {
+  font-size: 25px;
+  text-align: center;
+  font-family: Gabriola, 'Times New Roman', Times, serif;
+}
+h4 {
+  font-size: 25px;
+  font-family: Gabriola, 'Times New Roman', Times, serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  margin: 0 auto;
+}
+.clear {
+  clear: left;
+}
+.errorLabel {
+  font-family: Gabriola, 'Times New Roman', Times, serif;
+  color: red;
+}
+hcaption {
+  color: #7d684f;
+  vertical-align: super;
+  font-size: 16px;
+  padding-left: 30px;
+  position: relative;
+}
+.selectedMenu {
+  color: #003a5e;
+}
+#footer {
+  background: #003a5e;
+  overflow: hidden;
+  color: #9abdda;
+  font-family: Candara, 'Times New Roman', Times, serif;
+  width: 100%;
+}
+#footer .MenuList {
+  display: inline;
+  float: left;
+  margin-left: 40px;
+}
+#footer .MenuList li {
+  list-style: none;
+  padding-bottom: 7px;
+  text-decoration: none;
+}
+#footer .MenuList li a {
+  text-decoration: none;
+  color: #9abdda;
+}
+#footer .MenuList li a:hover {
+  color: #ffffff;
+}
+#footer .MenuList li a.selectedMenu {
+  color: #ffffff;
+}
+#footer .MenuList li ul {
+  margin-left: 35px;
+  display: inline;
+  float: left;
+}
+#footer #ServiceFooterList ul {
+  column-count: 2;
+}
+#footer #TermsMenuList {
+  margin-left: 0;
+}
+#footer #TermsMenuList ul {
+  -moz-column-count: 1;
+  -webkit-column-count: 1;
+  column-count: 1;
+  -webkit-column-gap: 40px;
+  /* Chrome, Safari, Opera */
+  -moz-column-gap: 40px;
+  /* Firefox */
+  column-gap: 40px;
+  text-decoration: none;
+  color: #9abdda;
+}
+#footer #TermsMenuList ul li a.selectedMenu {
+  color: #ffffff;
+}
+/*# sourceMappingURL=Footer.css.map */

@@ -1,0 +1,205 @@
+﻿@model IEnumerable<Data.Portfolio>
+
+@{
+    ViewBag.Title = "ReadPortfolio";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+
+<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+
+
+<h2>Portfolio</h2>
+
+<div>
+    <p>Name : <input type="text" ng-model="name"></p>
+    <h1>Hello {{name}}</h1>
+</div>
+
+  <!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<div ng-controller="GetPortfolioCtrl">
+
+    @*<ul>
+        <li ng-repeat="item in Portfolios">{{item.Title}}</li>
+    </ul>*@
+    @*<input type="button" value="test" ng-click="clickme()" />*@
+
+    <table class="GridTable" st-table="displayed">
+        <tr>
+            <th>Title</th>
+            <th>Service Name</th>
+            <th>URL</th>
+            <th>Description</th>
+            <th>Technology Used</th>
+            <th>Show Description</th>
+            <th>Is Exists</th>
+            <th>Image</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tbody ng-repeat="item in Portfolios  | orderBy:'objServices.Prefernce' | groupBy:'ServiceId'">
+            <tr>
+                <td ng-show="item.ServiceId_CHANGED" colspan="8" class="rowheading">{{item.objServices.ServiceName}}</td>
+            </tr>
+            <tr ng-class-odd="'odd'">
+                <td>{{item.Title}}</td>
+                <td>{{item.objServices.ServiceName}}</td>
+                <td>{{item.Link}}</td>
+                <td>{{item.Description}}</td>
+                <td>{{item.TechnologyUsed}}</td>
+                <td><input type="checkbox" ng-checked="item.ShowDescription == true" /></td>
+                <td><input type="checkbox" ng-checked="item.IsExists == true" /></td>
+                <td>
+                    <img ng-src="~/{{item.objImage.ImagePath}}" />
+                </td>
+                <td>
+                    <a href="" data-toggle="modal" data-target="#myModal"><img src="~/Content/images/edit-icon.png" class="icon" /></a>
+                </td>
+                <td>
+                    <img src="~/Content/images/bin_closed.png" class="icon" />
+                </td>
+            </tr>
+        </tbody>
+
+        @*<tbody ng-repeat="(key, value) in Portfolios">*@
+        @*<tr ng-repeat="p in Portfolios | groupBy: groupProperty">
+                <td>{{p.Title}}</td>
+                <td>{{p.objServices.ServiceName}}</td>
+                <td>{{p.Link}}</td>
+                <td>{{p.Description}}</td>
+                <td>{{p.TechnologyUsed}}</td>
+                <td><input type="checkbox" ng-checked="p.ShowDescription == true" /></td>
+                <td><input type="checkbox" ng-checked="p.IsExists == true" /></td>
+                <td>
+                    <img ng-src="~/{{p.objImage.ImagePath}}" />
+                </td>
+            </tr>*@
+        @*</tbody>*@
+    </table>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <!--<div class="modal-dialog">
+
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>-->
+    @Html.Action("Portfolio", "Insert", new { area = "Employees" })
+</div>
+
+
+
+
+@*<div ng-controller="GetPortfolioCtrl">
+    <div ui-grid="Portfolios">
+
+    </div>
+</div>*@
+
+     @*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Link)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TechnologyUsed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShowDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Preference)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsExists)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastUpdatedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastUpdatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Link)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TechnologyUsed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShowDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Preference)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsExists)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastUpdatedOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastUpdatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PortfolioId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PortfolioId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PortfolioId })
+        </td>
+    </tr>
+}
+
+</table>*@
